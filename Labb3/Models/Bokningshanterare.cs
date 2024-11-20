@@ -19,7 +19,9 @@ public class Bokningshantering
     public List<Pass> SökPass(string sökTerm)
     {
         return PassLista.Where(p => p.Namn.ToLower().Contains(sökTerm.ToLower()) ||
-                                     p.Kategori.ToLower().Contains(sökTerm.ToLower())).ToList();
+                                     p.Kategori.ToLower().Contains(sökTerm.ToLower())).ToList(); ||
+                                     p.Tid.TimeOfDay.ToString().Contains(sökTerm)
+                            ).ToList();
     }
 }
 
